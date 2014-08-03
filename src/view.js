@@ -1939,8 +1939,12 @@
             var time = '';
             if (record) {
                 var value = record.field_get(this.field_name);
-                time = ' ' + Sao.common.format_time(field.time_format(record),
-                    value);
+                if (value){
+                    time = ' ' + Sao.common.format_time(field.time_format(record),
+                        value);
+                }else{
+                    time = ' ' + field.time_format(record);
+                }
             }
             return Sao.common.date_format() + time;
         }
